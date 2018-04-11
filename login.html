@@ -1,0 +1,57 @@
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<div class="container">
+        
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form name="loginform" onSubmit="return validateForm();" action="flownet.html" method="post">
+                    <div class="form-group">
+                        <input class="form-control" id="usr" placeholder="username" name="username" type="text" autofocus="">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="pwd" placeholder="password" name="password" type="password" value="">
+                    </div>
+                    <div class="btn btn-sm btn-success" type="submit" id="button1" onClick="return validateForm();">Login</div>
+                </form>
+            </div>
+            <div id="flownet"></div>
+        </div>
+
+    </div>
+</div>
+</div>
+</html>
+<script>
+    $('#myModal').modal({backdrop: 'static', keyboard: false}) 
+    function validateForm() {
+        var un = document.loginform.usr.value;
+        var pw = document.loginform.pwd.value;
+        var username = "admin"; 
+        var password = "admin";
+        if ((un == username) && (pw == password)) {
+            window.open('flownet.html', "_self")
+            return true;
+        }
+        else {
+            alert ("Login was unsuccessful, please check your username and password");
+            return false;
+        }
+  }
+
+</script>
